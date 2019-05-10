@@ -1,21 +1,22 @@
 const site = {
-	"hh": "https://hentaihaven.org",
+	"hp": "https://heuteporno.com",
 	"hm": "http://hentaimama.com/",
-	"ph": "https://pornhub.com"
+	"ph": "https://pornhub.com",
+	"ph": "https//xnxx.com"
 };
 
-const defaultSite = "hh";
+const defaultSite = "hp";
 
 const Command = require('command');
 
-module.exports = function hentaiAnywhere(dispatch) {
-	const command = Command(dispatch);
+module.exports = function hentaiAnywhere(mod) {
+	const command = Command(mod);
 	
 	command.add(["lewd", "hentai", "porn"], (key)=>{
 		if(key == undefined)
 			key = defaultSite;
 		
-		dispatch.toClient("S_SHOW_AWESOMIUMWEB_SHOP", {
+		mod.send("S_SHOW_AWESOMIUMWEB_SHOP", {
 			unk: 104,
 			url: site[key]
 		});
